@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreatheWell - Find a Doctor</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #7EC8E3, #B5EAD7 70%);
+            overflow: hidden;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Find a Doctor Near Me</h2>
+        <button id="findDoctorBtn">Find a Doctor</button>
+    </div>
+
+    <script>
+        document.getElementById('findDoctorBtn').addEventListener('click', function() {
+            // Open Google Maps with a query for pulmonologists near the user
+            window.location.href = "https://www.google.com/maps/search/pulmonologists+near+me";
+        });
+    </script>
+
+</body>
+</html>

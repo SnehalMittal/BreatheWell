@@ -1,0 +1,77 @@
+\<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen - BreatheWell</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #7EC8E3, #B5EAD7); /* Gradient background */
+            overflow: hidden;
+        }
+
+        #splash-screen {
+            text-align: center;
+            padding: 50px;
+            opacity: 1;
+            transition: opacity 1s ease-out; /* Transition for fade-out */
+        }
+
+        #splash-screen.hidden {
+            opacity: 0;
+            pointer-events: none; /* Prevent interaction once hidden */
+        }
+
+        .logo {
+            width: 450px;
+            height: auto;
+            margin-bottom: 50px;
+            border-radius: 20px; /* Curved edges for the logo */
+        }
+
+        .welcome-message {
+            font-size: 40px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        .intro-quote {
+            font-size: 30px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="splash-screen" class="splash-container">
+        <!-- Logo -->
+        <img src="1.png" alt="BreatheWell Logo" class="logo">
+        <!-- Welcome message -->
+        <div class="welcome-message">Welcome to BreatheWell</div>
+        <!-- Intro/Quote -->
+        <div class="intro-quote">"Breathe easy, live better."</div>
+    </div>
+
+    <!-- Script to handle splash screen fade-out and redirection -->
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('splash-screen').classList.add('hidden'); // Add hidden class to fade out
+            }, 3000); // 3-second delay before fade-out
+
+            setTimeout(function() {
+                window.location.href = "register.html"; // Redirect to register page
+            }, 4000);  // Total time (3s fade + 1s buffer for smooth transition)
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Registered Users - BreatheWell</title>
+    <style>
+        /* Simple styling for table */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 1em;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h2>Registered Users</h2>
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Understanding of Asthma</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- User data will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Retrieve users from localStorage
+        const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+
+        const userTable = document.getElementById('userTable').getElementsByTagName('tbody')[0];
+
+        users.forEach(user => {
+            const row = userTable.insertRow();
+
+            const nameCell = row.insertCell();
+            const dobCell = row.insertCell();
+            const genderCell = row.insertCell();
+            const questionCell = row.insertCell();
+            const stateCell = row.insertCell();
+
+            nameCell.textContent = user.name;
+            dobCell.textContent = user.dob;
+            genderCell.textContent = user.gender;
+            questionCell.textContent = user.question;
+            stateCell.textContent = user.state;
+        });
+    </script>
+
+</body>
+</html>

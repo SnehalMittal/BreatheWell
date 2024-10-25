@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asthma Test with Doctor Locator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        main {
+            padding: 20px;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        .question {
+            margin: 15px 0;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .question select {
+            width: 100%;
+            padding: 5px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Asthma Test & Nearest Hospital Locator</h1>
+</header>
+
+<main>
+    <h2>Answer the questions to know if you may have asthma:</h2>
+
+    <form id="asthmaTest">
+        <div class="question">
+            <label>1. Do you have frequent coughing episodes?</label>
+            <select name="q1">
+                <option value="0">Never</option>
+                <option value="1">Sometimes</option>
+                <option value="2">Often</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>2. Do you experience shortness of breath?</label>
+            <select name="q2">
+                <option value="0">Never</option>
+                <option value="1">Sometimes</option>
+                <option value="2">Often</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>3. Do you have wheezing when breathing?</label>
+            <select name="q3">
+                <option value="0">Never</option>
+                <option value="1">Sometimes</option>
+                <option value="2">Often</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>4. Do you wake up at night due to coughing or wheezing?</label>
+            <select name="q4">
+                <option value="0">Never</option>
+                <option value="1">Sometimes</option>
+                <option value="2">Often</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>5. Are you frequently short of breath during physical activity?</label>
+            <select name="q5">
+                <option value="0">Never</option>
+                <option value="1">Sometimes</option>
+                <option value="2">Often</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>6. Do you experience chest tightness?</label>
+            <select name="q6">
+                <option value="0">Never</option>
+                <option value="1">Sometimes</option>
+                <option value="2">Often</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>7. Do you have a history of asthma in your family?</label>
+            <select name="q7">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>8. Are you allergic to pollen, dust, or pet dander?</label>
+            <select name="q8">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>9. Do you smoke or are you exposed to secondhand smoke?</label>
+            <select name="q9">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>10. Have you been diagnosed with any respiratory issues?</label>
+            <select name="q10">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+
+        <button type="button" onclick="submitTest()">Submit Test</button>
+    </form>
+
+    <div id="result"></div>
+    <button id="findDoctorButton" style="display: none;" onclick="findDoctor()">Find a Doctor</button>
+    <div id="map"></div>
+</main>
+
+<script>
+    const HERE_API_KEY = "l-KaXNGPrZ6FBEN1VImI8RZYSss7VaXZYWdmgIL0D1k"; // Replace with your HERE API Key
+
+    function submitTest() {
+        const form = document.getElementById('asthmaTest');
+        let score = 0;
+
+        // Calculate score from the form inputs
+        for (let i = 0; i < form.length; i++) {
+            if (form[i].tagName === 'SELECT') {
+                score += parseInt(form[i].value);
+            }
+        }
+
+        const result = document.getElementById('result');
+        const findDoctorButton = document.getElementById('findDoctorButton');
+
+        // AI-based response simulation with different outcomes based on the score
+        if (score >= 15) {
+            result.innerHTML = "You may have asthma. Finding the nearest doctor...";
+            findNearbyHospitals();
+            findDoctorButton.style.display = "block"; // Show the button
+        } else if (score >= 8) {
+            result.innerHTML = "You may have mild asthma. We recommend you consult a doctor.";
+            findDoctorButton.style.display = "block"; // Show the button
+        } else {
+            result.innerHTML = "You may not have asthma. Please take care of your health.";
+            findDoctorButton.style.display = "none"; // Hide the button
+        }
+    }
+
+    function findDoctor() {
+        window.location.href = "locate_doctor.html"; // Redirect to locate_doctor.html
+    }
+
+    function findNearbyHospitals() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                const map = new H.Map(
+                    document.getElementById('map'),
+                    H.service.Platform.createDefaultLayers().vector.normal.map,
+                    {
+                        zoom: 14,
+                        center: { lat: latitude, lng: longitude }
+                    }
+                );
+
+                const service = new H.service.places.Service(H.service.Platform.createDefaultServiceConfiguration());
+                const params = {
+                    'at': `${latitude},${longitude}`,
+                    'q': 'asthma hospital', // Query for asthma hospitals
+                    'size': 5
+                };
+
+                service.findPlaces(params, (result) => {
+                    let hospitalList = "<h3>Nearest Hospitals:</h3><ul>";
+                    result.results.items.forEach(hospital => {
+                        hospitalList += `<li>${hospital.title} - ${hospital.vicinity}</li>`;
+                    });
+                    hospitalList += "</ul>";
+                    document.getElementById('result').innerHTML += hospitalList;
+                }, (error) => {
+                    console.error('Error finding hospitals:', error);
+                    document.getElementById('result').innerHTML += "<p>No hospitals found nearby.</p>";
+                });
+            }, (error) => {
+                console.error('Geolocation error:', error);
+                document.getElementById('result').innerHTML += "<p>Unable to retrieve your location.</p>";
+            });
+        } else {
+            document.getElementById('result').innerHTML += "<p>Geolocation is not supported by this browser.</p>";
+        }
+    }
+
+</script>
+
+<script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" defer></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" defer></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" defer></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" defer></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-controls.js" type="text/javascript" defer></script>
+
+</body>
+</html>

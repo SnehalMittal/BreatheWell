@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - BreatheWell</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #B5EAD7, #7EC8E3);
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            font-size: 16px;
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .back-button:hover {
+            color: #45a049;
+        }
+
+        .back-button::before {
+            content: "← ";
+            font-size: 20px;
+        }
+
+        h1, h2 {
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #333;
+            margin: 15px 0;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+
+        .resources-list {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .resources-list li {
+            margin-bottom: 8px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .ask-doubt-button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .ask-doubt-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-button">Back</a>
+        
+        <h1>Education</h1>
+        <p>Welcome to the Education section of BreatheWell! Here, you can find resources to deepen your knowledge about asthma, respiratory health, and overall wellness. We are committed to empowering you with the right information to make informed decisions for a healthier life.</p>
+
+        <div class="section">
+            <h2>Educational Resources</h2>
+            <p>Here are some curated resources to get you started:</p>
+            <ul class="resources-list">
+                <li><strong>Asthma Basics:</strong> <a href="https://www.lung.org/asthma" target="_blank">American Lung Association - Asthma</a></li>
+                <li><strong>Respiratory Health:</strong> <a href="https://www.who.int/health-topics/respiratory-diseases" target="_blank">World Health Organization - Respiratory Diseases</a></li>
+                <li><strong>Wellness Tips:</strong> <a href="https://www.cdc.gov/nceh/airpollution/asthma/asthma-children.htm" target="_blank">CDC - Asthma and Your Child</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Learning Tips</h2>
+            <p>Staying informed about asthma can help you manage it more effectively. Here are a few learning tips:</p>
+            <ul class="resources-list">
+                <li><strong>Stay Updated:</strong> Keep up with the latest research in respiratory health. New treatments and technologies are constantly being developed.</li>
+                <li><strong>Use Trusted Sources:</strong> Use reputable sources like WHO, CDC, and leading health organizations for accurate information.</li>
+                <li><strong>Regular Check-Ins:</strong> Schedule regular check-ins with your healthcare provider to discuss your respiratory health and adjust your care as needed.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Understanding Asthma</h2>
+            <p>Asthma is a chronic condition affecting the airways in your lungs, making it difficult to breathe when exposed to certain triggers. It’s important to understand your specific triggers, medication needs, and strategies to manage symptoms.</p>
+            <p>If you have questions or need more details on managing asthma effectively, feel free to reach out using the "Ask a Doubt" button below.</p>
+        </div>
+
+        <div class="button-container">
+            <button class="ask-doubt-button" onclick="location.href='ask-doubt.html'">Ask a Doubt</button>
+        </div>
+    </div>
+
+</body>
+</html>

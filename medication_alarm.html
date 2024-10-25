@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Alarm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    <style>       
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(to right, #f0f8ff, #e0f7fa);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        main {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 60%;
+            max-width: 600px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .field {
+            margin: 15px 0;
+        }
+
+        .field label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .field input[type="text"], 
+        .field input[type="time"], 
+        .field input[type="number"], 
+        .field input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .checkbox-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .checkbox-container label {
+            font-weight: normal;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 0;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    
+</header>
+
+<main>
+    <h2>Set Your Medicine Reminder</h2>
+
+    <form id="medicineReminder">
+        <div class="field">
+            <label for="medicineName">Medicine Name:</label>
+            <input type="text" id="medicineName" placeholder="Enter medicine name" required>
+        </div>
+
+        <div class="field">
+            <label for="reminderTime">Reminder Time:</label>
+            <input type="time" id="reminderTime" required>
+        </div>
+
+        <div class="field">
+            <label for="durationDays">Number of Days:</label>
+            <input type="number" id="durationDays" min="1" placeholder="e.g., 7" required>
+        </div>
+
+        <div class="field">
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" required>
+        </div>
+
+        <div class="field">
+            <label>Select Days of the Week:</label>
+            <div class="checkbox-container">
+                <label><input type="checkbox" name="days" value="Monday"> Monday</label>
+                <label><input type="checkbox" name="days" value="Tuesday"> Tuesday</label>
+                <label><input type="checkbox" name="days" value="Wednesday"> Wednesday</label>
+                <label><input type="checkbox" name="days" value="Thursday"> Thursday</label>
+                <label><input type="checkbox" name="days" value="Friday"> Friday</label>
+                <label><input type="checkbox" name="days" value="Saturday"> Saturday</label>
+                <label><input type="checkbox" name="days" value="Sunday"> Sunday</label>
+            </div>
+        </div>
+
+        <button type="button" onclick="setMedicineAlarm()">Set Alarm</button>
+        <button type="button" onclick="navigateToMedicineAlarm()">Add More Alarms</button>
+
+        <!-- Finish Button -->
+        <button type="button" onclick="finish()">Finish</button>
+    </form>
+
+    <div id="result"></div>
+</main>
+
+<script>
+    let alarms = [];
+
+    function setMedicineAlarm() {
+        const medicineName = document.getElementById('medicineName').value;
+        const reminderTime = document.getElementById('reminderTime').value;
+        const durationDays = document.getElementById('durationDays').value;
+        const endDate = document.getElementById('endDate').value;
+
+        const selectedDays = Array.from(document.querySelectorAll('input[name="days"]:checked')).map(el => el.value);
+        
+        if (selectedDays.length === 0) {
+            alert("Please select at least one day of the week.");
+            return;
+        }
+
+        const alarm = { medicineName, reminderTime, durationDays, endDate, selectedDays };
+        alarms.push(alarm);
+        displayResult(alarm);
+    }
+
+    function displayResult(alarm) {
+        const result = document.getElementById('result');
+        result.innerHTML += `
+            <div>
+                Alarm set for <strong>${alarm.medicineName}</strong> at <strong>${alarm.reminderTime}</strong> for 
+                <strong>${alarm.durationDays}</strong> days until <strong>${alarm.endDate}</strong> on: 
+                <strong>${alarm.selectedDays.join(', ')}</strong>.
+            </div>
+        `;
+    }
+
+    function navigateToMedicineAlarm() {
+        window.location.href = 'medication_alarm.html';
+    }
+
+    // Finish function to redirect to index.html
+    function finish() {
+        window.location.href = 'index.html';
+    }
+</script>
+
+</body>
+</html>
