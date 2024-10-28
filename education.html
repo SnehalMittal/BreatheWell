@@ -20,6 +20,17 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
         .back-button {
@@ -52,7 +63,6 @@
             font-size: 1.5em;
             color: #555;
             margin-bottom: 10px;
-            text-align: center;
         }
 
         h3 {
@@ -102,12 +112,30 @@
 
         .ask-doubt-button:hover {
             background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .icon {
+            margin-right: 8px;
+            vertical-align: middle;
+            font-size: 1.2em;
+            color: #4CAF50;
+        }
+
+        /* Consistent font size for levels of asthma */
+        .levels-list li {
+            font-size: 1em;
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <div class="banner">
+            🌟 Welcome to BreatheWell! Empower your knowledge for a healthier you. 🌟
+        </div>
+        
         <a href="index.html" class="back-button">Back</a>
         
         <h1>Understanding Asthma</h1>
@@ -115,15 +143,15 @@
 
         <!-- Introduction to Asthma -->
         <div class="section">
-            <h2>What is asthma?</h2>
+            <h2><span class="icon">🌬️</span> What is asthma?</h2>
             <p>Asthma is a chronic respiratory condition that causes inflammation and narrowing of the airways, making breathing difficult. It often appears in childhood but can affect people of all ages. Asthma symptoms vary from person to person and can range from mild wheezing to severe breathing difficulties.</p>
         </div>
 
         <!-- Levels of Asthma -->
         <div class="section">
-            <h2>Levels of asthma</h2>
+            <h2><span class="icon">📊</span> Levels of asthma</h2>
             <p>Asthma is typically classified into four levels:</p>
-            <ul>
+            <ul class="levels-list">
                 <li><strong>Intermittent asthma:</strong> Occasional symptoms, usually due to exercise or specific triggers.</li>
                 <li><strong>Mild persistent asthma:</strong> Symptoms occur a few times per week and may affect daily life.</li>
                 <li><strong>Moderate persistent asthma:</strong> Daily symptoms that impact sleep and physical activities.</li>
@@ -133,7 +161,7 @@
 
         <!-- Common Questions -->
         <div class="section">
-            <h2>Common questions about asthma</h2>
+            <h2><span class="icon">❓</span> Common questions about asthma</h2>
 
             <h3>1. Why does asthma happen?</h3>
             <p>Asthma is often caused by a combination of genetic and environmental factors. Those with a family history of asthma or allergies are more prone to developing it. Exposure to allergens, pollution, smoking, and respiratory infections can also trigger asthma.</p>
@@ -141,7 +169,10 @@
             <h3>2. Is asthma addictive and safe?</h3>
             <p>Asthma itself is not addictive, but it requires ongoing management. Asthma medications, including inhalers, are safe when used as prescribed and are not addictive. Some people may feel dependent on their inhaler due to frequent symptoms, but this is not an addiction. With proper management and lifestyle adjustments, many asthma patients can reduce their reliance on quick-relief inhalers over time.</p>
 
-            <h3>3. What triggers asthma?</h3>
+            <h3>3. Is the inhaler addictive and safe?</h3>
+            <p>Inhalers are generally safe and non-addictive when used as directed. Rescue inhalers provide quick relief during asthma attacks, and controller inhalers help reduce inflammation and prevent attacks. They’re designed to be safe with minimal side effects, though dependence can occur if symptoms are frequent. Proper asthma management reduces the need for frequent inhaler use.</p>
+
+            <h3>4. What triggers asthma?</h3>
             <p>Common triggers include:</p>
             <ul>
                 <li>Dust, pollen, mold, and pet dander</li>
@@ -151,58 +182,30 @@
                 <li>Respiratory infections like the flu</li>
             </ul>
 
-            <h3>4. How does an asthma attack happen?</h3>
+            <h3>5. How does an asthma attack happen?</h3>
             <p>An asthma attack occurs when the airways become inflamed, swell up, and produce excess mucus, making it difficult to breathe. This inflammation causes the muscles around the airways to tighten, leading to wheezing, coughing, and shortness of breath.</p>
 
-            <h3>5. What happens in the body during an asthma attack?</h3>
+            <h3>6. What happens in the body during an asthma attack?</h3>
             <p>During an attack, the airways constrict, mucus fills them, and airflow is restricted. This response is triggered by the immune system reacting to allergens or irritants, causing inflammation and muscle spasms in the lungs.</p>
 
-            <h3>6. Why does the wheezing sound come?</h3>
+            <h3>7. Why does the wheezing sound come?</h3>
             <p>Wheezing occurs when air is forced through narrowed airways during an asthma attack, creating a whistling or wheezing sound. It is a common symptom and usually indicates airway constriction.</p>
 
-            <h3>7. Is there a permanent solution for asthma?</h3>
+            <h3>8. Is there a permanent solution for asthma?</h3>
             <p>While there is currently no cure for asthma, effective management and treatment plans can help keep symptoms under control and reduce the frequency of attacks.</p>
 
-            <h3>8. What are the temporary solutions?</h3>
+            <h3>9. What are the temporary solutions?</h3>
             <p>Temporary solutions include using rescue inhalers during an attack, avoiding triggers, and taking prescribed medications. Quick-relief inhalers, such as albuterol, can provide immediate relief by relaxing the muscles around the airways.</p>
 
-            <h3>9. How do inhalers provide relief?</h3>
+            <h3>10. How do inhalers provide relief?</h3>
             <p>Inhalers deliver medication directly to the lungs. There are two main types:</p>
             <ul>
                 <li><strong>Rescue inhalers:</strong> Provide quick relief during an asthma attack.</li>
                 <li><strong>Controller inhalers:</strong> Help reduce inflammation and prevent attacks over time.</li>
             </ul>
 
-            <h3>10. Why are there different types of asthma?</h3>
+            <h3>11. Why are there different types of asthma?</h3>
             <p>Asthma types vary based on triggers and symptoms. For example:</p>
-            <ul>
-                <li><strong>Allergic asthma:</strong> Triggered by allergens like pollen or dust.</li>
-                <li><strong>Exercise-induced asthma:</strong> Triggered by physical exertion.</li>
-                <li><strong>Occupational asthma:</strong> Triggered by workplace irritants.</li>
-            </ul>
-        </div>
-
-        <!-- Resources Section -->
-        <div class="section">
-            <h2>Educational resources</h2>
-            <p>Here are some trusted resources to learn more about asthma and respiratory health:</p>
-            <ul class="resources-list">
-                <li><strong>American Lung Association:</strong> <a href="https://www.lung.org/asthma" target="_blank">Asthma Resources</a></li>
-                <li><strong>World Health Organization (WHO):</strong> <a href="https://www.who.int/health-topics/respiratory-diseases" target="_blank">Respiratory Diseases</a></li>
-                <li><strong>Centers for Disease Control and Prevention (CDC):</strong> <a href="https://www.cdc.gov/asthma" target="_blank">CDC Asthma Resources</a></li>
-            </ul>
-        </div>
-
-        <!-- Fun Quotes Section -->
-        <div class="section">
-            <h2>Stay inspired!</h2>
-            <p>“Breathe deeply, and let your courage rise with every breath.”</p>
-            <p>“Asthma doesn’t define you; your resilience does.”</p>
-        </div>
-
-        <!-- Ask a Doubt Button -->
-        <div class="button-container">
-            <button class="ask-doubt-button">Ask a doubt</button>
         </div>
     </div>
 
