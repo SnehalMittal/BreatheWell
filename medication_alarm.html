@@ -161,6 +161,12 @@
 <script>
     let alarms = [];
 
+    // Set min date for the end date field to today's date
+    document.addEventListener('DOMContentLoaded', () => {
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('endDate').setAttribute('min', today);
+    });
+
     function setMedicineAlarm() {
         const medicineName = document.getElementById('medicineName').value;
         const reminderTime = document.getElementById('reminderTime').value;
