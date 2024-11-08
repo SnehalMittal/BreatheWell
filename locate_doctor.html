@@ -32,6 +32,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 10px;
         }
 
         button:hover {
@@ -44,6 +45,8 @@
     <div class="container">
         <h2>Find a Doctor Near Me</h2>
         <button id="findDoctorBtn">Find a Doctor</button>
+        <br>
+        <button onclick="goBack()">Go Back</button>
     </div>
 
     <script>
@@ -51,6 +54,10 @@
             // Open Google Maps with a query for pulmonologists near the user
             window.location.href = "https://www.google.com/maps/search/pulmonologists+near+me";
         });
+
+        function goBack() {
+            window.location.href = "index.html"; // Adjust 'index.html' as needed based on your file structure
+        }
     </script>
 
 </body>
