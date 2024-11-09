@@ -37,7 +37,7 @@
     <h1>Your Alarms</h1>
 </header>
 
-<main id="alarmList">
+<main id="alarm-list.html">
     <!-- Alarms will be displayed here -->
 </main>
 
@@ -47,7 +47,7 @@
         const alarmList = document.getElementById('alarmList');
 
         // Clear any existing alarms
-        alarmList.innerHTML = 'medication_alarm.html';
+        alarmList.innerHTML = '';
 
         if (alarms.length === 0) {
             alarmList.innerHTML = '<p>No alarms set.</p>';
