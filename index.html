@@ -58,6 +58,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             background-color: #fff;
             position: relative;
+            cursor: pointer;
         }
 
         .box-1 {
@@ -91,43 +92,6 @@
             color: white;
         }
 
-        .hidden-button {
-            display: none;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #555;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .box:hover .hidden-button {
-            display: block;
-        }
-
-        /* Secret button */
-        #secretButton {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: transparent;
-            border: none;
-            color: transparent;
-            cursor: pointer;
-            font-size: 0;
-        }
-
-        #secretButton:focus {
-            color: #fff;
-            font-size: 1em;
-            background-color: #000;
-            border-radius: 5px;
-            padding: 5px;
-        }
-
         footer {
             text-align: center;
             margin-top: 40px;
@@ -151,32 +115,25 @@
     <a href="alarm-list.html">View Alarms</a>
 </nav>
 
-<!-- Secret Button for Admin -->
-<button id="secretButton" onclick="openAdmin()"></button>
-
 <div class="container">
-    <div class="box box-1">
+    <div class="box box-1" onclick="window.location.href='education.html'">
         <h3>Learn About Asthma</h3>
         <p>Understand asthma types, causes, and treatments.</p>
-        <button class="hidden-button" onclick="window.location.href='education.html'">box-1</button>
     </div>
 
-    <div class="box box-2">
+    <div class="box box-2" onclick="window.location.href='test.html'">
         <h3>Take a Quick Test</h3>
         <p>Assess your symptoms and find out more.</p>
-        <button class="hidden-button" onclick="window.location.href='test.html'">box-2</button>
     </div>
 
-    <div class="box box-3">
+    <div class="box box-3" onclick="window.location.href='medication.html'">
         <h3>Order Medication</h3>
         <p>Get trusted medications delivered to your door.</p>
-        <button class="hidden-button" onclick="window.location.href='medication.html'">box-3</button>
     </div>
 
-    <div class="box box-4">
+    <div class="box box-4" onclick="window.location.href='medication_alarm.html'">
         <h3>Manage Alarms</h3>
         <p>View and manage your medication alarms.</p>
-        <button class="hidden-button" onclick="window.location.href='medication_alarm.html'">box-4</button>
     </div>
 </div>
 
