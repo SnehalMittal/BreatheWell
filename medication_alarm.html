@@ -182,6 +182,10 @@
 
         const alarm = { medicineName, reminderTime, durationDays, endDate, selectedDays };
         alarms.push(alarm);
+
+        // Save alarms to localStorage
+        localStorage.setItem('alarms', JSON.stringify(alarms));
+
         displayResult(alarm);
     }
 
@@ -207,4 +211,4 @@
 </script>
 
 </body>
-</html>
+</html> 
