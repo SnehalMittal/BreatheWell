@@ -187,6 +187,8 @@
             if (form[i].tagName === 'SELECT') {
                 score += parseInt(form[i].value);
             }
+        function goBack() {
+        window.location.href = "index.html"; // Redirects to index.html
         }
 
         const result = document.getElementById('result');
@@ -197,7 +199,7 @@
             result.innerHTML = "You may have asthma. Finding the nearest doctor...";
             findNearbyHospitals();
             findDoctorButton.style.display = "block"; // Show the button
-        } else if (score >= 8) {
+        } else if (score >= 10) {
             result.innerHTML = "You may have mild asthma. We recommend you consult a doctor.";
             findDoctorButton.style.display = "block"; // Show the button
         } else {
