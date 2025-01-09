@@ -5,154 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medicine Alarm</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
-    <style>       
+    <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            background: linear-gradient(to right, #f0f8ff, #e0f7fa);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #f4f4f4;
+            padding: 20px;
         }
-
-        main {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            width: 60%;
-            max-width: 600px;
-        }
-
         h2 {
-            color: #4CAF50;
             text-align: center;
-            font-weight: 700;
-            margin-bottom: 20px;
         }
-
-        .field {
-            margin: 15px 0;
+        form {
+            margin: 20px auto;
+            max-width: 500px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-
-        .field label {
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
             display: block;
             font-weight: bold;
-            margin-bottom: 5px;
-            color: #333;
         }
-
-        .field input[type="text"], 
-        .field input[type="time"], 
-        .field input[type="number"], 
-        .field input[type="date"] {
+        input, button {
             width: 100%;
             padding: 10px;
-            border: 2px solid #4CAF50;
+            margin-top: 5px;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 16px;
-            outline: none;
         }
-
-        .checkbox-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .checkbox-container label {
-            font-weight: normal;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            margin-bottom: 0;
-        }
-
         button {
-            width: 100%;
             background-color: #4CAF50;
             color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
             font-weight: bold;
         }
-
         button:hover {
             background-color: #45a049;
         }
-
         #result {
             margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #4CAF50;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            font-size: 15px;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 600px) {
-            main {
-                width: 90%;
-            }
         }
     </style>
 </head>
 <body>
 
 <header>
-    
+    <h2>Set Your Medicine Reminder</h2>
 </header>
 
 <main>
-    <h2>Set Your Medicine Reminder</h2>
-
     <form id="medicineReminder">
-        <div class="field">
-            <label for="medicineName">Medicine Name:</label>
-            <input type="text" id="medicineName" placeholder="Enter medicine name" required>
+        <div class="form-group">
+            <label for="medicineName">Medicine Name</label>
+            <input type="text" id="medicineName" placeholder="Enter medicine name">
         </div>
-
-        <div class="field">
-            <label for="reminderTime">Reminder Time:</label>
-            <input type="time" id="reminderTime" required>
+        <div class="form-group">
+            <label for="reminderTime">Reminder Time</label>
+            <input type="time" id="reminderTime">
         </div>
-
-        <div class="field">
-            <label for="durationDays">Number of Days:</label>
-            <input type="number" id="durationDays" min="1" placeholder="e.g., 7" required>
+        <div class="form-group">
+            <label for="durationDays">Duration (Days)</label>
+            <input type="number" id="durationDays" placeholder="Enter duration in days" min="1">
         </div>
-
-        <div class="field">
-            <label for="endDate">End Date:</label>
-            <input type="date" id="endDate" required>
+        <div class="form-group">
+            <label for="endDate">End Date</label>
+            <input type="date" id="endDate">
         </div>
-
-        <div class="field">
-            <label>Select Days of the Week:</label>
-            <div class="checkbox-container">
-                <label><input type="checkbox" name="days" value="Monday"> Monday</label>
-                <label><input type="checkbox" name="days" value="Tuesday"> Tuesday</label>
-                <label><input type="checkbox" name="days" value="Wednesday"> Wednesday</label>
-                <label><input type="checkbox" name="days" value="Thursday"> Thursday</label>
-                <label><input type="checkbox" name="days" value="Friday"> Friday</label>
-                <label><input type="checkbox" name="days" value="Saturday"> Saturday</label>
-                <label><input type="checkbox" name="days" value="Sunday"> Sunday</label>
-            </div>
+        <div class="form-group">
+            <label>Select Days</label>
+            <input type="checkbox" id="sunday" value="Sunday"> Sunday
+            <input type="checkbox" id="monday" value="Monday"> Monday
+            <input type="checkbox" id="tuesday" value="Tuesday"> Tuesday
+            <input type="checkbox" id="wednesday" value="Wednesday"> Wednesday
+            <input type="checkbox" id="thursday" value="Thursday"> Thursday
+            <input type="checkbox" id="friday" value="Friday"> Friday
+            <input type="checkbox" id="saturday" value="Saturday"> Saturday
         </div>
-
-        <button type="button" onclick="setMedicineAlarm()">Set Alarm</button>
-        <button type="button" onclick="navigateToMedicineAlarm()">Add More Alarms</button>
-
-        <!-- Finish Button -->
-        <button type="button" onclick="finish()">Finish</button>
+        <div class="form-group">
+            <button type="button" onclick="setMedicineAlarm()">Set Alarm</button>
+            <button type="button" onclick="finish()">Finish</button>
+        </div>
     </form>
 
     <div id="result"></div>
@@ -161,7 +95,6 @@
 <script>
     let alarms = [];
 
-    // Set min date for the end date field to today's date
     document.addEventListener('DOMContentLoaded', () => {
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('endDate').setAttribute('min', today);
@@ -172,9 +105,8 @@
         const reminderTime = document.getElementById('reminderTime').value;
         const durationDays = document.getElementById('durationDays').value;
         const endDate = document.getElementById('endDate').value;
-
         const selectedDays = Array.from(document.querySelectorAll('input[name="days"]:checked')).map(el => el.value);
-        
+
         if (selectedDays.length === 0) {
             alert("Please select at least one day of the week.");
             return;
@@ -191,7 +123,7 @@
 
     function displayResult(alarm) {
         const result = document.getElementById('result');
-        result.innerHTML += `
+        result.innerHTML = `
             <div>
                 Alarm set for <strong>${alarm.medicineName}</strong> at <strong>${alarm.reminderTime}</strong> for 
                 <strong>${alarm.durationDays}</strong> days until <strong>${alarm.endDate}</strong> on: 
@@ -200,15 +132,11 @@
         `;
     }
 
-    function navigateToMedicineAlarm() {
-        window.location.href = 'medication_alarm.html';
-    }
-
-    // Finish function to redirect to index.html
+    // Finish function to redirect to alarm list page
     function finish() {
-        window.location.href = 'index.html';
+        window.location.href = 'alarm_list.html';
     }
 </script>
 
 </body>
-</html> 
+</html>
