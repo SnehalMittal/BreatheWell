@@ -186,8 +186,6 @@
             if (form[i].tagName === 'SELECT') {
                 score += parseInt(form[i].value);
             }
-        function goBack() {
-        window.location.href = "index.html"; // Redirects to index.html
         }
 
         const result = document.getElementById('result');
@@ -253,6 +251,9 @@
         }
     }
 
+    function goBack() {
+        window.location.href = "index.html"; // Redirects to index.html
+    }
 </script>
 
 <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" defer></script>
