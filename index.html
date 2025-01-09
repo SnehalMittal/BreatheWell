@@ -50,46 +50,57 @@
             flex-wrap: wrap;
         }
 
-        .box {
+        .button-box {
             width: 250px;
             padding: 20px;
             margin: 10px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            position: relative;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
             cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .button-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .box-1 {
             background-color: #FFC107;
+            color: white;
         }
 
         .box-2 {
             background-color: #FF5722;
+            color: white;
         }
 
         .box-3 {
             background-color: #8BC34A;
+            color: white;
         }
 
         .box-4 {
             background-color: #00BCD4;
+            color: white;
         }
 
         .box-5 {
             background-color: #9C27B0;
+            color: white;
         }
 
-        .box h3 {
+        .button-box h3 {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             font-size: 1.5em;
-            color: white;
         }
 
-        .box p {
-            color: white;
+        .button-box p {
+            font-size: 0.9em;
         }
 
         footer {
@@ -116,41 +127,30 @@
 </nav>
 
 <div class="container">
-    <div class="box box-1" onclick="window.location.href='education.html'">
+    <a href="education.html" class="button-box box-1">
         <h3>Learn About Asthma</h3>
         <p>Understand asthma types, causes, and treatments.</p>
-    </div>
+    </a>
 
-    <div class="box box-2" onclick="window.location.href='test.html'">
+    <a href="test.html" class="button-box box-2">
         <h3>Take a Quick Test</h3>
         <p>Assess your symptoms and find out more.</p>
-    </div>
+    </a>
 
-    <div class="box box-3" onclick="window.location.href='medication.html'">
+    <a href="medication.html" class="button-box box-3">
         <h3>Order Medication</h3>
         <p>Get trusted medications delivered to your door.</p>
-    </div>
+    </a>
 
-    <div class="box box-4" onclick="window.location.href='medication_alarm.html'">
+    <a href="medication_alarm.html" class="button-box box-4">
         <h3>Manage Alarms</h3>
         <p>View and manage your medication alarms.</p>
-    </div>
+    </a>
 </div>
 
 <footer>
     <p>&copy; 2024 BreatheWell - All Rights Reserved.</p>
 </footer>
-
-<script>
-    function openAdmin() {
-        const password = prompt('Enter the secret password:');
-        if (password === 'admin123') {
-            window.location.href = 'view-users.html';
-        } else {
-            alert('Wrong password!');
-        }
-    }
-</script>
 
 </body>
 </html>
