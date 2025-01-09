@@ -37,14 +37,14 @@
     <h1>Your Alarms</h1>
 </header>
 
-<main id="alarm-list.html">
+<main id="alarm-list">
     <!-- Alarms will be displayed here -->
 </main>
 
 <script>
     function displayAlarms() {
         const alarms = JSON.parse(localStorage.getItem('alarms')) || [];
-        const alarmList = document.getElementById('alarmList');
+        const alarmList = document.getElementById('alarm-list');  // Corrected this ID
 
         // Clear any existing alarms
         alarmList.innerHTML = '';
@@ -70,4 +70,4 @@
 </script>
 
 </body>
-</html>
+</html> 
