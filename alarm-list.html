@@ -52,7 +52,7 @@
 <body>
 
 <!-- Back Button -->
-<button class="back-button" onclick="index.back(index.html)">← Back</button>
+<button class="back-button" onclick="navigateToHome()">← Back</button>
 
 <header>
     <h1>Your Alarms</h1>
@@ -87,6 +87,11 @@
                 alarmList.appendChild(alarmDiv);
             });
         }
+    }
+
+    // Function to navigate to index.html
+    function navigateToHome() {
+        window.location.href = 'index.html';
     }
 
     // Load alarms when the page loads
