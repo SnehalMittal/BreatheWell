@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medicine Alarm</title>
+    <title>Alarm List</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
@@ -27,41 +27,25 @@
         .back-button:hover {
             background-color: #45a049;
         }
-        h2 {
+        h1 {
             text-align: center;
         }
-        form {
-            margin: 20px auto;
-            max-width: 500px;
-            padding: 15px;
+        #alarm-list {
+            margin-top: 20px;
+        }
+        .alarm {
             background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .form-group {
-            margin-bottom: 15px;
+        .alarm strong {
+            color: #333;
         }
-        label {
-            display: block;
-            font-weight: bold;
-        }
-        input, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            font-weight: bold;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        #result {
-            margin-top: 20px;
+        .no-alarms {
+            text-align: center;
+            color: #888;
         }
     </style>
 </head>
@@ -71,87 +55,42 @@
 <button class="back-button" onclick="history.back()">← Back</button>
 
 <header>
-    <h2>Set Your Medicine Reminder</h2>
+    <h1>Your Alarms</h1>
 </header>
 
-<main>
-    <form id="medicineReminder">
-        <div class="form-group">
-            <label for="medicineName">Medicine Name</label>
-            <input type="text" id="medicineName" placeholder="Enter medicine name">
-        </div>
-        <div class="form-group">
-            <label for="reminderTime">Reminder Time</label>
-            <input type="time" id="reminderTime">
-        </div>
-        <div class="form-group">
-            <label for="durationDays">Duration (Days)</label>
-            <input type="number" id="durationDays" placeholder="Enter duration in days" min="1">
-        </div>
-        <div class="form-group">
-            <label for="endDate">End Date</label>
-            <input type="date" id="endDate">
-        </div>
-        <div class="form-group">
-            <label>Select Days</label>
-            <input type="checkbox" id="sunday" value="Sunday"> Sunday
-            <input type="checkbox" id="monday" value="Monday"> Monday
-            <input type="checkbox" id="tuesday" value="Tuesday"> Tuesday
-            <input type="checkbox" id="wednesday" value="Wednesday"> Wednesday
-            <input type="checkbox" id="thursday" value="Thursday"> Thursday
-            <input type="checkbox" id="friday" value="Friday"> Friday
-            <input type="checkbox" id="saturday" value="Saturday"> Saturday
-        </div>
-        <button type="button" onclick="setMedicineAlarm()">Set Alarm</button>
-        <button type="button" onclick="finish()">Go to Alarm List</button>
-    </form>
-
-    <div id="result"></div>
+<main id="alarm-list">
+    <!-- Alarms will be displayed here -->
 </main>
 
 <script>
-    let alarms = JSON.parse(localStorage.getItem('alarms')) || [];
+    // Function to display alarms saved in localStorage
+    function displayAlarms() {
+        const alarms = JSON.parse(localStorage.getItem('alarms')) || [];
+        const alarmList = document.getElementById('alarm-list');
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('endDate').setAttribute('min', today);
-    });
+        // Clear any existing alarms
+        alarmList.innerHTML = '';
 
-    function setMedicineAlarm() {
-        const medicineName = document.getElementById('medicineName').value;
-        const reminderTime = document.getElementById('reminderTime').value;
-        const durationDays = document.getElementById('durationDays').value;
-        const endDate = document.getElementById('endDate').value;
-        const selectedDays = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(el => el.value);
-
-        if (!medicineName || !reminderTime || !durationDays || !endDate || selectedDays.length === 0) {
-            alert("Please fill all fields and select at least one day!");
-            return;
+        if (alarms.length === 0) {
+            alarmList.innerHTML = '<p class="no-alarms">No alarms set.</p>';
+        } else {
+            alarms.forEach(alarm => {
+                const alarmDiv = document.createElement('div');
+                alarmDiv.className = 'alarm';
+                alarmDiv.innerHTML = `
+                    <strong>${alarm.medicineName}</strong><br>
+                    Time: ${alarm.reminderTime}<br>
+                    Duration: ${alarm.durationDays} days<br>
+                    End Date: ${alarm.endDate}<br>
+                    Days: ${alarm.selectedDays.join(', ')}
+                `;
+                alarmList.appendChild(alarmDiv);
+            });
         }
-
-        const alarm = { medicineName, reminderTime, durationDays, endDate, selectedDays };
-        alarms.push(alarm);
-
-        // Save alarms to localStorage
-        localStorage.setItem('alarms', JSON.stringify(alarms));
-
-        displayResult(alarm);
     }
 
-    function displayResult(alarm) {
-        const result = document.getElementById('result');
-        result.innerHTML = `
-            <div>
-                Alarm set for <strong>${alarm.medicineName}</strong> at <strong>${alarm.reminderTime}</strong> for 
-                <strong>${alarm.durationDays}</strong> days until <strong>${alarm.endDate}</strong> on: 
-                <strong>${alarm.selectedDays.join(', ')}</strong>.
-            </div>
-        `;
-    }
-
-    function finish() {
-        window.location.href = 'alarm-list.html';
-    }
+    // Load alarms when the page loads
+    window.onload = displayAlarms;
 </script>
 
 </body>
