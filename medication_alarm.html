@@ -84,7 +84,7 @@
             <input type="checkbox" id="saturday" value="Saturday"> Saturday
         </div>
         <button type="button" onclick="setMedicineAlarm()">Set Alarm</button>
-        <button type="button" onclick="finish()">Go to Alarm List</button>
+        <button type="button" onclick="finish()">View Alarm List</button>
     </form>
 
     <div id="result"></div>
@@ -103,10 +103,12 @@
         const reminderTime = document.getElementById('reminderTime').value;
         const durationDays = document.getElementById('durationDays').value;
         const endDate = document.getElementById('endDate').value;
-        const selectedDays = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(el => el.value);
+        const selectedDays = Array.from(
+            document.querySelectorAll('input[type="checkbox"]:checked')
+        ).map(el => el.value);
 
         if (!medicineName || !reminderTime || !durationDays || !endDate || selectedDays.length === 0) {
-            alert("Please fill all fields and select at least one day!");
+            alert('Please fill out all fields and select at least one day.');
             return;
         }
 
