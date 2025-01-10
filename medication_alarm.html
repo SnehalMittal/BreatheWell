@@ -102,10 +102,7 @@
         const durationDays = document.getElementById('durationDays').value;
         const endDate = document.getElementById('endDate').value;
         const selectedDays = Array.from(document.querySelectorAll('input[name="days"]:checked')).map(el => el.value);
-
-        if (selectedDays.length === 0) {
-            alert("Please select at least one day of the week.");
-            return;
+        
         }
 
         const alarm = { medicineName, reminderTime, durationDays, endDate, selectedDays };
