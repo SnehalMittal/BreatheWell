@@ -199,8 +199,12 @@
         } else if (score >= 10) {
             result.innerHTML = "You may have mild asthma. We recommend you consult a doctor.";
             findDoctorButton.style.display = "block"; // Show the button
-        } else {
+            if (score >= 8) {
             result.innerHTML = "You may not have asthma. Please take care of your health.";
+            findNearbyHospitals();
+            findDoctorButton.style.display = "block"; // Show the button
+        } else {
+            result.innerHTML = "You don't have asthma.";
             findDoctorButton.style.display = "none"; // Hide the button
         }
     }
