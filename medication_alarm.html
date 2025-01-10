@@ -10,6 +10,22 @@
             font-family: 'Open Sans', sans-serif;
             background-color: #f4f4f4;
             padding: 20px;
+            position: relative;
+        }
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #45a049;
         }
         h2 {
             text-align: center;
@@ -51,6 +67,9 @@
 </head>
 <body>
 
+<!-- Back Button -->
+<button class="back-button" onclick="history.back()">← Back</button>
+
 <header>
     <h2>Set Your Medicine Reminder</h2>
 </header>
@@ -84,7 +103,7 @@
             <input type="checkbox" id="saturday" value="Saturday"> Saturday
         </div>
         <button type="button" onclick="setMedicineAlarm()">Set Alarm</button>
-        <button type="button" onclick="finish()">View Alarm List</button>
+        <button type="button" onclick="finish()">Go to Alarm List</button>
     </form>
 
     <div id="result"></div>
@@ -103,12 +122,10 @@
         const reminderTime = document.getElementById('reminderTime').value;
         const durationDays = document.getElementById('durationDays').value;
         const endDate = document.getElementById('endDate').value;
-        const selectedDays = Array.from(
-            document.querySelectorAll('input[type="checkbox"]:checked')
-        ).map(el => el.value);
+        const selectedDays = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(el => el.value);
 
         if (!medicineName || !reminderTime || !durationDays || !endDate || selectedDays.length === 0) {
-            alert('Please fill out all fields and select at least one day.');
+            alert("Please fill all fields and select at least one day!");
             return;
         }
 
