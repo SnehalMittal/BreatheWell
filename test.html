@@ -203,7 +203,7 @@
             result.innerHTML = "You may not have asthma. Please take care of your health.";
             findNearbyHospitals();
             findDoctorButton.style.display = "block"; // Show the button
-        } else {
+        } else if (score >= 5) {
             result.innerHTML = "You don't have asthma.";
             findDoctorButton.style.display = "none"; // Hide the button
         }
