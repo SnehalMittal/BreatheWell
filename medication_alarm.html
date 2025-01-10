@@ -40,12 +40,17 @@
             background-color: #4CAF50;
             color: white;
             font-weight: bold;
+            cursor: pointer;
         }
         button:hover {
             background-color: #45a049;
         }
         #result {
             margin-top: 20px;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
         }
     </style>
 </head>
@@ -75,13 +80,17 @@
         </div>
         <div class="form-group">
             <label>Select Days</label>
-            <input type="checkbox" id="sunday" value="Sunday"> Sunday
-            <input type="checkbox" id="monday" value="Monday"> Monday
-            <input type="checkbox" id="tuesday" value="Tuesday"> Tuesday
-            <input type="checkbox" id="wednesday" value="Wednesday"> Wednesday
-            <input type="checkbox" id="thursday" value="Thursday"> Thursday
-            <input type="checkbox" id="friday" value="Friday"> Friday
-            <input type="checkbox" id="saturday" value="Saturday"> Saturday
+            <input type="checkbox" name="days" value="Sunday"> Sunday
+            <input type="checkbox" name="days" value="Monday"> Monday
+            <input type="checkbox" name="days" value="Tuesday"> Tuesday
+            <input type="checkbox" name="days" value="Wednesday"> Wednesday
+            <input type="checkbox" name="days" value="Thursday"> Thursday
+            <input type="checkbox" name="days" value="Friday"> Friday
+            <input type="checkbox" name="days" value="Saturday"> Saturday
+        </div>
+        <div class="button-group">
+            <button type="button" onclick="setMedicineAlarm()">Set Alarm</button>
+            <button type="button" onclick="finish()">Finish</button>
         </div>
     </form>
 
@@ -102,7 +111,10 @@
         const durationDays = document.getElementById('durationDays').value;
         const endDate = document.getElementById('endDate').value;
         const selectedDays = Array.from(document.querySelectorAll('input[name="days"]:checked')).map(el => el.value);
-        
+
+        if (!medicineName || !reminderTime || !durationDays || !endDate || selectedDays.length === 0) {
+            alert('Please fill all the fields and select at least one day!');
+            return;
         }
 
         const alarm = { medicineName, reminderTime, durationDays, endDate, selectedDays };
@@ -125,7 +137,6 @@
         `;
     }
 
-    // Finish function to redirect to alarm list page
     function finish() {
         window.location.href = 'alarm-list.html';
     }
