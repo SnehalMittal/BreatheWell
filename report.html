@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -70,10 +70,10 @@
                 <input type="text" id="patient-name" name="name" required>
 
                 <label for="how-i-felt">How I felt today:</label>
-                <textarea id="how-i-felt" name="how-i-felt" rows="3" maxlength="80" placeholder="e.g., Felt energetic and motivated"></textarea>
+                <textarea id="how-i-felt" name="how-i-felt" rows="3" maxlength="80" required placeholder="e.g., Felt energetic and motivated"></textarea>
 
                 <label for="water-intake">Water Intake (in glasses):</label>
-                <input type="number" id="water-intake" name="water-intake" min="0" placeholder="e.g., 8">
+                <input type="number" id="water-intake" name="water-intake" min="0" required placeholder="e.g., 8">
 
                 <label for="bp-level">BP Level:</label>
                 <input type="text" id="bp-level" name="bp-level" readonly placeholder="e.g., 120/80">
@@ -89,16 +89,16 @@
                 <input type="text" name="med5" placeholder="Medicine 5 (e.g., Ibuprofen)">
 
                 <label for="adherence">Adherence:</label>
-                <textarea id="adherence" name="adherence" rows="2" maxlength="80" placeholder="e.g., Took all medications on time"></textarea>
+                <textarea id="adherence" name="adherence" rows="2" maxlength="80" required placeholder="e.g., Took all medications on time"></textarea>
 
                 <label for="symptoms">Symptoms Experienced Today:</label>
-                <textarea id="symptoms" name="symptoms" rows="3" maxlength="80" placeholder="e.g., Mild headache, occasional cough"></textarea>
+                <textarea id="symptoms" name="symptoms" rows="3" maxlength="80" required placeholder="e.g., Mild headache, occasional cough"></textarea>
 
                 <label for="notes">Additional Notes:</label>
-                <textarea id="notes" name="notes" rows="3" maxlength="80" placeholder="e.g., Felt a bit tired in the afternoon"></textarea>
+                <textarea id="notes" name="notes" rows="3" maxlength="80" required placeholder="e.g., Felt a bit tired in the afternoon"></textarea>
 
                 <label for="questions">Any Questions for the Doctor:</label>
-                <textarea id="questions" name="questions" rows="3" maxlength="80" placeholder="e.g., Is it safe to take this medication with food?"></textarea>
+                <textarea id="questions" name="questions" rows="3" maxlength="80" required placeholder="e.g., Is it safe to take this medication with food?"></textarea>
 
                 <button type="submit">Submit Report</button>
             </form>
