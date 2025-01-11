@@ -3,39 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asthma Awareness Page</title>
+    <title>Daily Health Report</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f0f4f7;
             color: #333;
         }
         .content {
-            padding: 20px;
-            max-width: 800px;
+            padding: 30px;
+            max-width: 900px;
             margin: 0 auto;
-        }
-        .nude-box {
-            background-color: #f5f5dc;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 1.2em;
-            color: #555;
-            font-style: italic;
         }
         .purple-box {
             background-color: #e0b0ff;
             padding: 20px;
             margin-top: 30px;
             border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .purple-box h2 {
             text-align: center;
             color: #4b0082;
+            font-size: 1.8em;
+            margin-bottom: 20px;
         }
         .purple-box label {
             display: block;
@@ -44,18 +37,20 @@
         }
         .purple-box input, .purple-box textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-size: 1em;
         }
         .purple-box button {
             background-color: #4b0082;
             color: #fff;
-            padding: 10px 15px;
+            padding: 12px 18px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 1.1em;
         }
         .purple-box button:hover {
             background-color: #3a0068;
@@ -64,16 +59,6 @@
 </head>
 <body>
     <div class="content">
-        <h1>Welcome to Asthma Awareness</h1>
-        <p>Understanding asthma is the first step towards managing it effectively. Explore our resources to learn more about symptoms, treatments, and how you can live a fulfilling life despite the challenges.</p>
-
-        <!-- Additional content of the page -->
-
-        <!-- Nude Box with the Quote -->
-        <div class="nude-box">
-            "Asthma may challenge your lungs, but it will never define your spirit. Breathe strong, dream big, and let nothing hold you back."
-        </div>
-
         <!-- Purple Box for Report -->
         <div class="purple-box">
             <h2>Daily Health Report</h2>
@@ -85,35 +70,35 @@
                 <input type="text" id="patient-name" name="name" required>
 
                 <label for="how-i-felt">How I felt today:</label>
-                <textarea id="how-i-felt" name="how-i-felt" rows="3" maxlength="80"></textarea>
+                <textarea id="how-i-felt" name="how-i-felt" rows="3" maxlength="80" placeholder="e.g., Felt energetic and motivated"></textarea>
 
                 <label for="water-intake">Water Intake (in glasses):</label>
-                <input type="number" id="water-intake" name="water-intake" min="0">
+                <input type="number" id="water-intake" name="water-intake" min="0" placeholder="e.g., 8">
 
                 <label for="bp-level">BP Level:</label>
-                <input type="text" id="bp-level" name="bp-level" readonly placeholder="Calculated via camera integration">
+                <input type="text" id="bp-level" name="bp-level" readonly placeholder="e.g., 120/80">
 
                 <label for="spo2-level">SpO2 Level:</label>
-                <input type="text" id="spo2-level" name="spo2-level" readonly placeholder="Calculated via camera integration">
+                <input type="text" id="spo2-level" name="spo2-level" readonly placeholder="e.g., 98%">
 
                 <label>Medications:</label>
-                <input type="text" name="med1" placeholder="Medicine 1">
-                <input type="text" name="med2" placeholder="Medicine 2">
-                <input type="text" name="med3" placeholder="Medicine 3">
-                <input type="text" name="med4" placeholder="Medicine 4">
-                <input type="text" name="med5" placeholder="Medicine 5">
+                <input type="text" name="med1" placeholder="Medicine 1 (e.g., Paracetamol)">
+                <input type="text" name="med2" placeholder="Medicine 2 (e.g., Cough Syrup)">
+                <input type="text" name="med3" placeholder="Medicine 3 (e.g., Vitamin C)">
+                <input type="text" name="med4" placeholder="Medicine 4 (e.g., Antihistamine)">
+                <input type="text" name="med5" placeholder="Medicine 5 (e.g., Ibuprofen)">
 
                 <label for="adherence">Adherence:</label>
-                <textarea id="adherence" name="adherence" rows="2" maxlength="80"></textarea>
+                <textarea id="adherence" name="adherence" rows="2" maxlength="80" placeholder="e.g., Took all medications on time"></textarea>
 
                 <label for="symptoms">Symptoms Experienced Today:</label>
-                <textarea id="symptoms" name="symptoms" rows="3" maxlength="80"></textarea>
+                <textarea id="symptoms" name="symptoms" rows="3" maxlength="80" placeholder="e.g., Mild headache, occasional cough"></textarea>
 
                 <label for="notes">Additional Notes:</label>
-                <textarea id="notes" name="notes" rows="3" maxlength="80"></textarea>
+                <textarea id="notes" name="notes" rows="3" maxlength="80" placeholder="e.g., Felt a bit tired in the afternoon"></textarea>
 
                 <label for="questions">Any Questions for the Doctor:</label>
-                <textarea id="questions" name="questions" rows="3" maxlength="80"></textarea>
+                <textarea id="questions" name="questions" rows="3" maxlength="80" placeholder="e.g., Is it safe to take this medication with food?"></textarea>
 
                 <button type="submit">Submit Report</button>
             </form>
